@@ -9,7 +9,7 @@ def get_days_from_today(date):
         date = datetime.strptime(date, "%Y-%m-%d").date()
         today = datetime.today().date()
         difference =  date - today
-        return difference
+        return difference.days
     except ValueError:
         return "Incorect data"
 
@@ -22,13 +22,13 @@ print(get_days_from_today("2025-04-11"))
 def get_numbers_ticket(min, max, quantity):
     try:
         numbers = set()
-        if min >= 1 and max <= 1000 and min <= quantity <= max:
+        if min >= 1 and max <= 1000:
             while len(numbers) != quantity:
                 numbers.add(randint(min, max))
         numbers_list = sorted(numbers)
         return numbers_list
     except TypeError:
-        return "Incorect data"
+        return []
 
 print('\n', '_'*10, "SECOND TASK", '_'*10)
 print(get_numbers_ticket(1, 200, 20))
